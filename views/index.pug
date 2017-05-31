@@ -1,4 +1,11 @@
 extends layout
 
 block screen
-  p #{name}'s Pug source code!
+  #news
+  - for(var i = 0; i < 3; i++) {
+    .article
+      .id #{i}
+      .title Title
+      .desc Desc
+      .views Views - #{i + 4}
+  - }
