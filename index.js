@@ -9,9 +9,27 @@ app.set('views', './views');
 app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
-  res.render('index', {
-    name: 'Ravsii'
-  });
-})
+  res.render('index');
+});
+
+app.get('/reg', (req, res) => {
+  res.render('register');
+});
+
+app.get('/log', (req, res) => {
+  res.render('login');
+});
+
+app.get('/article', (req, res) => {
+  res.render('article');
+});
+
+app.get('/photo', (req, res) => {
+  res.render('photo');
+});
+
+app.get('/upload', (req, res) => {
+  res.render('uploadPhoto');
+});
 
 http.listen('8080');
