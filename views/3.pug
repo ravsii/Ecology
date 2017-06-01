@@ -1,0 +1,10 @@
+extends layout
+
+block screen
+  form(method='POST' action='/1')
+            label(for='name') Login or Email:
+            input#name.form-control(type='text', placeholder='' name='login')
+            label(for='pw') Password:
+            input#pw.form-control(type='password' name='password')
+          button.btn.btn-primary(type='submit') Sign up
+  a(class='button' href='http://localhost:8080/1') Тыкни меня
