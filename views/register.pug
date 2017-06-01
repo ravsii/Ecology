@@ -1,13 +1,20 @@
 extends layout
 
+block css
+  link(rel='stylesheet', href='./css/auth.css')
+
 block screen
-  |login:
-  input(type='text')
-  br
-  |email:
-  input(type='email')
-  br
-  |pass:
-  input(type='password')
-  br
-  input(type='submit')
+  .form
+    h1 Регистрация
+    h3.error Error if needed.
+    form(method='POST' action='/reg')
+      .field
+        .helper Логин:
+        input.enter(type='text' name='login')
+      .field
+        .helper E-Mail:
+        input.enter(type='email' name='email')
+      .field
+        .helper Пароль:
+        input.enter(type='email' name='email')
+      input.submit(type='submit' value='Зарегистрироваться')
