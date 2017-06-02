@@ -74,7 +74,7 @@ app.post('/log', urlencodedParser , (req, res) =>{
       req.session.save();
       console.log(result[0]);
     }else{
-      console.log("Не попал!");
+      res.redirect('/log');
     }
   });
   res.redirect('/');
