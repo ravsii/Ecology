@@ -16,20 +16,8 @@ a{
 }
 
 body{
-  background: #73bd8a;
+  background: url('/images/bg.png') repeat;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-}
-
-body::after{
-  background: url('/images/bg.jpg');
-  content: ' ';
-  opacity: 0.3;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: -1;   
 }
 
 #wrapper{
@@ -39,40 +27,38 @@ body::after{
 
 #header{
   border-radius: 10px 10px 0 0;
-  background: #FFF;
+  background: url('/images/logo.png');
+  height: 350px;
   margin-top: 30px;
-}
-
-#header h1, #header h2{
-  margin: 0 250px;
-}
-
-#header h1{
-  font-size: 40px;
-  margin-top: 10px;
-  display: inline-block;
-}
-  
-#header h2{
-  text-align: right;
-  color: #999;
-  margin-bottom: 20px;
+  position: relative;
 }
 
 #header ul{
-  border-top: 5px solid #67ce33;
-  background: url('../images/headerMenuBg.png')
+  position: absolute;
+  bottom: 0;
+  width: 1060px;
+  border-top: 2px solid #67ce33;
+  border-bottom: 2px solid #67ce33;
+  background: #FFF;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1), 0 -5px 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 #header ul li a{
   display: block;
   padding: 10px 20px;
+  font-size: 18px;
+  color: #222;
+  position: relative;
+}
+
+#header ul li a:hover{
+  border-top: 3px solid #67ce33;
+  padding-top: 7px;
 }
 
 #main{
   border-radius: 0 0 10px 10px;
   background: #FFF;
-  margin-top: 20px;
   padding: 20px;
 }
 
