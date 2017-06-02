@@ -5,13 +5,13 @@ block css
 
 block screen
   .form
-    h1 Регистрация
+    h1 Вход
     h3.error Error if needed.
-    form(method='POST' action='/reg')
+    form(method='POST' action='/log')
       .field
         .helper Логин:
         input.enter(type='text' name='login')
       .field
         .helper Пароль:
-        input.enter(type='email' name='email')
-      input.submit(type='submit' value='Зарегистрироваться')
+        input.enter(type='password' name='password')
+      input.submit(type='submit' value='Войти')
