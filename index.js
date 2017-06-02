@@ -49,28 +49,30 @@ app.get('/reg', (req, res) => {
 });
 
 app.post('/reg', urlencodedParser, (req, res) => {
-  sql = "INSERT INTO `Users` (`Login`, `Password`, `Email`, `id`)" +
-  "VALUES ('" + req.body.login + 
+  sql = "INSERT INTO `Users` (`admin`, `login`, `password`, `email`, `id`)" +
+  "VALUES ('0','" + req.body.login + 
   "', '" + req.body.password +
   "', '" + req.body.email + "', NULL);";
   con.query(sql, function(err, result){
     if(err) throw err;
     req.session.authorized = true;
     req.session.username = req.body.login;
+    req.session.admin = false;
+    req.session.save();
   });
-  req.session.save();
   res.redirect('/');
 });
 
 app.post('/log', urlencodedParser , (req, res) =>{
-  sql = "SELECT * FROM `Users` WHERE `login` = '" + req.body.login + "' OR `email` = '" + req.body.password  + "'";
+  sql = "SELECT * FROM `Users` WHERE `login` = '" + req.body.login + "' OR `email` = '" + req.body.login  + "'";
   con.query(sql, function(err, result){
     if(err) throw err;
-    if(result[0] != null){
+    if(result[0] != null && result[0].password == req.body.password){
       req.session.authorized = true;
       req.session.username = req.body.login;
+      req.session.admin = result[0].admin;
       req.session.save();
-      console.log(req.session);
+      console.log(result[0]);
     }else{
       console.log("Не попал!");
     }
