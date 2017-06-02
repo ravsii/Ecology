@@ -23,7 +23,6 @@ app.use(expressSession({
   saveUninitialized: true,
 }));
 
-//var sql = "INSERT INTO `Users` (`Login`, `Password`, `Email`, `id`) VALUES ('JackKaif_2', 'qwerty', 'jackkaif@gmail.com', NULL);"
 var sql;
 
 //All stuff for rendering
@@ -34,10 +33,6 @@ app.set('view engine', 'pug');
 
 con.connect(function(err){
   if(err) throw err;
-})
-
-app.get('/2/', function (req, res){
-  res.render('index');
 })
 
 app.get('/', (req, res) => {
@@ -53,12 +48,24 @@ app.get('/reg', (req, res) => {
   });
 });
 
+app.post('/reg', urlencodedParser, (req, res) => {
+  sql = "INSERT INTO `Users` (`Login`, `Password`, `Email`, `id`)" +
+  "VALUES ('" + req.body.login + 
+  "', '" + req.body.password +
+  "', '" + req.body.email + "', NULL);";
+  con.query(sql, function(err, result){
+    if(err) throw err;
+    req.session.authorized = true;
+    req.session.username = req.body.login;
+  });
+  req.session.save();
+  res.redirect('/');
+});
+
 app.post('/log', urlencodedParser , (req, res) =>{
-  console.log(req.body);
   sql = "SELECT * FROM `Users` WHERE `login` = '" + req.body.login + "' OR `email` = '" + req.body.password  + "'";
   con.query(sql, function(err, result){
     if(err) throw err;
-    console.log(result[0]);
     if(result[0] != null){
       req.session.authorized = true;
       req.session.username = req.body.login;
@@ -68,8 +75,6 @@ app.post('/log', urlencodedParser , (req, res) =>{
       console.log("Не попал!");
     }
   });
-  //delete req.session.names12345;
-  req.session.save();
   res.redirect('/');
 });
 

@@ -1,0 +1,22 @@
+extends layout
+
+block css
+  link(rel='stylesheet', href='./css/article.css')
+
+block screen
+  #news
+  - var t = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque porta nunc, in placerat erat finibus ac. Morbi molestie nisi velit...";
+  - for(var i = 0; i < 6; i++) {
+    .article(id='aid_i')
+      .image 
+        a.hover #[p Читать полностью &rArr;]
+        img.left(src='http://via.placeholder.com/500x200')
+        .clear
+      .title Заголовок #{i}
+      .desc #{t}
+      span.viewsIcon
+      span.views Views - #{i + 4}
+      a.readFull.right
+        | Читать полностью &rArr;
+      .clear
+  - }

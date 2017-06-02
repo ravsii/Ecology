@@ -1,0 +1,13 @@
+#header
+  h1 Портал экологии
+  h2 За день природу не спасти!
+  ul.menu
+    li.left #[a(href='/') Главная]
+    li.left #[a(href='/') Галерея]
+    if(session.authorized)
+      li.right #[a(href='/logout') Выход]
+      li.right #{session.username}
+    else
+      li.right #[a(href='/reg') Регистрация]
+      li.right #[a(href='/log') Вход]
+    .clear
