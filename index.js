@@ -10,7 +10,7 @@ var bodyParser = require("body-parser");
 var urlencodedParser = bodyParser.urlencoded({extended: false});
 
 const con = mysql.createConnection({
-  host: "localhost",
+  host: "127.0.0.1",
   user: "mysql",
   password: "mysql",
   database: "Ecology"
@@ -20,13 +20,11 @@ app.use(cookieParser());
 app.use(expressSession({
   secret: 'yadaun',
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: true,
 }));
 
 //var sql = "INSERT INTO `Users` (`Login`, `Password`, `Email`, `id`) VALUES ('JackKaif_2', 'qwerty', 'jackkaif@gmail.com', NULL);"
 var sql;
-
-
 
 //All stuff for rendering
 app.use(express.static('public'));
@@ -38,14 +36,30 @@ con.connect(function(err){
   if(err) throw err;
 })
 
-app.post('/1/', urlencodedParser,function (req, res) {
+app.get('/2/', function (req, res){
+  res.render('index');
+})
+
+app.get('/', (req, res) => {
+  console.log(req.session);
+  res.render('index', {
+    session: req.session
+  });
+});
+
+app.get('/reg', (req, res) => {
+  res.render('register',{
+    session: req.session
+  });
+});
+
+app.post('/log', urlencodedParser , (req, res) =>{
   console.log(req.body);
   sql = "SELECT * FROM `Users` WHERE `login` = '" + req.body.login + "' OR `email` = '" + req.body.password  + "'";
   con.query(sql, function(err, result){
     if(err) throw err;
     console.log(result[0]);
     if(result[0] != null){
-      console.log("Попал! ");
       req.session.authorized = true;
       req.session.username = req.body.login;
       req.session.save();
@@ -56,18 +70,41 @@ app.post('/1/', urlencodedParser,function (req, res) {
   });
   //delete req.session.names12345;
   req.session.save();
-  res.redirect('/3');
+  res.redirect('/');
+});
 
-})
+app.get('/logout', (req, res) =>{
+  req.session.authorized = false;
+  delete req.session.username;
+  req.session.save();
+  res.redirect('/');
+});
 
-app.get('/2/', function (req, res){
-  res.render('index');
-})
+app.get('/log', (req, res) => {
+  res.render('login', {
+    session: req.session
+  });
+  
+});
 
-app.get('/3/', function (req, res){
-  res.render('index');
-  console.log(req.session);
-})
+app.get('/article', (req, res) => {
+  res.render('article', {
+    session: req.session
+  });
+});
+
+app.get('/photo', (req, res) => {
+  res.render('photo',{
+    session: req.session
+  });
+});
+
+app.get('/upload', (req, res) => {
+  res.render('uploadPhoto',{
+    session: req.session
+  });
+});
+
 
 http.listen('8080');
 
