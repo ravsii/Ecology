@@ -1,4 +1,4 @@
-#main .article{
+#news .article{
   position: relative;
   margin-bottom: 20px;
   margin-right: 20px;
@@ -6,20 +6,20 @@
   display: inline-block;
 }
 
-#main .article:nth-child(2n+1){
-  margin-right: 0;
+#news .article:nth-child(2n){
+  margin-right: 0 !important;
 }
 
-#main .article .image{
+#news .article .image{
   border-radius: 0 0 5px 5px;
   border-bottom: 5px solid #67ce33;
 }
 
-#main .article .image img{
+#news .article .image img{
   border-radius: 5px 5px 0 0;
 }
 
-#main .article .image a.hover{
+#news .article .image a.hover{
   position: absolute;
   opacity: 0;
   width: 500px;
@@ -32,39 +32,39 @@
   transition: all 0.1s ease-in;
 }
 
-#main .article .image a.hover p{
+#news .article .image a.hover p{
   position: relative;
   top: 50%;
   transform: translateY(-50%);
 }
 
-#main .article .image:hover a.hover{
+#news .article .image:hover a.hover{
   opacity: 1;
   cursor: pointer;
 }
 
-#main .article .title{
+#news .article .title{
   font-size: 22px;
 }
 
-#main .article .views{
+#news .article .views{
   padding-left: 0 !important;
 }
 
-#main .article .readFull{
+#news .article .readFull{
   border: 1px solid #999;
   border-radius: 3px;
   text-align: right;
   font-size: 16px;
 }
 
-#main .article .readFull:hover{
+#news .article .readFull:hover{
   transition: all 0.1s ease-in;
   border: 1px solid #67ce33;
   cursor: pointer;
 }
 
-#main .article span, #main .article a{
+#news .article span, #news .article a{
   display: inline-block;
   vertical-align: middle;
   padding: 5px 10px;

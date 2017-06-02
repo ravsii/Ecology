@@ -22,6 +22,11 @@ app.use(expressSession({
   resave: true,
   saveUninitialized: true,
 }));
+app.use((req, res, next) => {
+  req.session.authorized = false;
+  req.session.save();
+  next();
+});
 
 var sql;
 
@@ -32,7 +37,7 @@ app.set('view engine', 'pug');
 
 
 con.connect(function(err){
-  if(err) throw err;
+  //if(err) throw err;
 })
 
 app.get('/', (req, res) => {
@@ -43,7 +48,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/reg', (req, res) => {
-  res.render('register',{
+  res.render('register', {
     session: req.session
   });
 });
@@ -96,6 +101,12 @@ app.get('/log', (req, res) => {
 
 app.get('/newarticle', (req, res) => {
   res.render('createArticle');
+});
+
+app.get('/gallery', (req, res) => {
+  res.render('gallery', {
+    session: req.session
+  });
 });
 
 app.get('/article', (req, res) => {

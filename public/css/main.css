@@ -34,7 +34,7 @@ body{
 
 #header{
   border-radius: 10px 10px 0 0;
-  background: url('/images/logo.png');
+  background: url('/images/logo.png') 0 -30px;
   height: 350px;
   position: relative;
 }
