@@ -20,6 +20,10 @@ app.get('/log', (req, res) => {
   res.render('login');
 });
 
+app.get('/newarticle', (req, res) => {
+  res.render('createArticle');
+});
+
 app.get('/article', (req, res) => {
   res.render('article');
 });

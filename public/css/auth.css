@@ -12,11 +12,11 @@
   border: 1px solid #AAA;
   display: inline-block;
   border-radius: 5px;
+  transition: border 0.2s ease-in;
 }
 
 .form .field:hover{
   border: 1px solid #67ce33;
-  transition: border 0.2s ease-in;
 }
 
 .form .field{
@@ -34,14 +34,13 @@
 
 .form .field .helper{
   color: #999;
-  margin-top: -5px;
   text-align: right;
   width: 95px;
+  transition: color 0.2s ease-in;
 }
 
 .form .field:hover .helper{
   color: #333;
-  transition: border 0.2s ease-in;
 }
 
 .form .field input.enter{
@@ -62,7 +61,7 @@
 }
 
 .form input.submit:hover{
-  transition: border 0.2s ease-in;
+  transition: all 0.2s ease-in;
   border: 1px solid #67ce33;
   cursor: pointer;
   color: #111;

@@ -2,6 +2,17 @@
   ul.menu
     li.left #[a(href='/') Главная]
     li.left #[a(href='/') Галерея]
-    li.right #[a(href='/') Выход]
-    li.right #[a(href='/') Username]
+    
+    //Если вошёл
+    li.right #[a(href='/logout') Выход]
+    li.right #[a Username]
+    li.right #[a(href='/upload') Добавить фотографию]
+    
+    //И(!) если админ
+    li.right #[a(href='/newarticle') Добавить новость]
+    
+    //Если не вошёл
+    if false
+      li.right #[a(href='/reg') Регистрация]
+      li.right #[a(href='/log') Авторизация]
     .clear
