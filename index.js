@@ -94,6 +94,10 @@ app.get('/log', (req, res) => {
   
 });
 
+app.get('/newarticle', (req, res) => {
+  res.render('createArticle');
+});
+
 app.get('/article', (req, res) => {
   res.render('article', {
     session: req.session

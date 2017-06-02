@@ -15,21 +15,27 @@ a{
   text-decoration: none;
 }
 
+@font-face {
+  font-family: 'Futura-Normal';
+  src: url('/fonts/Futura-Normal.eot') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body{
   background: url('/images/bg.png') repeat;
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-family: Futura-Normal;
 }
 
 #wrapper{
   width: 1060px;
-  margin: 0 auto;
+  margin: 50px auto;
 }
 
 #header{
   border-radius: 10px 10px 0 0;
   background: url('/images/logo.png');
   height: 350px;
-  margin-top: 30px;
   position: relative;
 }
 

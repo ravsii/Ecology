@@ -2,10 +2,14 @@
   ul.menu
     li.left #[a(href='/') Главная]
     li.left #[a(href='/') Галерея]
+
     if(session.authorized)
       li.right #[a(href='/logout') Выход]
       li.right #{session.username}
     else
       li.right #[a(href='/reg') Регистрация]
       li.right #[a(href='/log') Вход]
+      li.right #[a(href='/upload') Добавить фотографию]
+      //И(!) если админ
+      li.right #[a(href='/newarticle') Добавить новость]
     .clear
