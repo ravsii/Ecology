@@ -22,6 +22,10 @@ app.use(expressSession({
   resave: true,
   saveUninitialized: true,
 }));
+app.use((req, res, next) => {
+  req.session.auth = false;
+  next();
+});
 
 var sql;
 
@@ -32,7 +36,7 @@ app.set('view engine', 'pug');
 
 
 con.connect(function(err){
-  if(err) throw err;
+  //if(err) throw err;
 })
 
 app.get('/', (req, res) => {
