@@ -17,6 +17,7 @@
 
 .form .field:hover{
   border: 1px solid #67ce33;
+  transition: border 0.2s ease-in;
 }
 
 .form .field{
