@@ -1,13 +1,13 @@
-extends layout
+extends ../layout
 
 block css
-  link(rel='stylesheet', href='./css/auth.css')
+  link(rel='stylesheet', href='/css/auth.css')
 
 block screen
   .form
     h1 Регистрация
     h3.error Error if needed.
-    form(method='POST' action='/reg')
+    form(method='POST' action='/auth/register')
       .field
         .helper Логин:
         input.enter(type='text' name='login')

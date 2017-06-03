@@ -1,12 +1,27 @@
 extends layout
 
+block css
+  link(rel='stylesheet', href='./css/upload.css')
+
 block screen
-  #upload
-    .title Title
-    input(type='text')
-    .image image #[img]
-    input(type='file')
-    .desc tyt bydet opisanie
-    input(type='desc')
-    br
-    input(type='submit')
+  form#upload
+    .field
+      p Название новости
+      input.title(type='text' name='title')
+    .field
+      label#lb(for='photo') Выберите изображение
+      input#photo(type='file' name='file')
+    .field
+      p Описании новости
+      textarea.desc(name='desc' noresize)
+    input.submit(type='submit' value='Опубликовать')
+    
+    script.
+      label = document.getElementById('lb');
+      input = document.getElementById('photo');
+      input.onchange = () => {
+        a = input.value;
+        a = a.split('\\');
+        a = a[a.length - 1];
+        lb.innerText = a.split('.')[0];
+      }
