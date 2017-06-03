@@ -6,6 +6,7 @@ const mysql     = require('mysql');
 var expressSession = require('express-session');
 var cookieParser = require('cookie-parser');
 var bodyParser = require("body-parser");
+const fileUpload = require('express-fileupload');
 
 var urlencodedParser = bodyParser.urlencoded({extended: false});
 
@@ -27,6 +28,7 @@ app.use((req, res, next) => {
   req.session.save();
   next();
 });
+app.use(fileUpload());
 
 var sql;
 
@@ -37,7 +39,7 @@ app.set('view engine', 'pug');
 
 
 con.connect(function(err){
-  //if(err) throw err;
+  if(err) throw err;
 })
 
 app.get('/', (req, res) => {
@@ -104,9 +106,35 @@ app.get('/newarticle', (req, res) => {
 });
 
 app.get('/gallery', (req, res) => {
-  res.render('gallery', {
-    session: req.session
+  sql = "SELECT * FROM `images`";
+  con.query(sql, function(err, result){
+    if(err) throw err;
+    console.log(result[0].image);
+    res.render('gallery', {
+      session: req.session,
+      result: result
+    });
   });
+  
+});
+
+app.post('/upload',(req, res) => {
+  sql = "SELECT * FROM `images`";
+  let pathFile;
+  con.query(sql, function(err, result){
+    if(err) throw err;
+    let image = req.files.image;
+    pathFile = 'user_files/photos/' + (result.length + 1) + '.png';
+    image.mv(pathFile,function(err) {
+      if (err) console.log(err);
+    });
+    sql = "INSERT INTO `images` (`id`, `image`, `views`)" +
+    "VALUES (NULL,'" + pathFile + "', 0);";
+    con.query(sql, function(err, result){
+      if(err) throw err;
+    });
+  });
+  res.redirect("/gallery")
 });
 
 app.get('/article', (req, res) => {
@@ -120,13 +148,6 @@ app.get('/photo', (req, res) => {
     session: req.session
   });
 });
-
-app.get('/upload', (req, res) => {
-  res.render('uploadPhoto',{
-    session: req.session
-  });
-});
-
 
 http.listen('8080');
 
