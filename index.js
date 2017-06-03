@@ -109,7 +109,7 @@ app.get('/gallery', (req, res) => {
   sql = "SELECT * FROM `images`";
   con.query(sql, function(err, result){
     if(err) throw err;
-    console.log(result[0].image);
+    console.log(result[0]);
     res.render('gallery', {
       session: req.session,
       result: result
@@ -124,7 +124,7 @@ app.post('/upload',(req, res) => {
   con.query(sql, function(err, result){
     if(err) throw err;
     let image = req.files.image;
-    pathFile = 'user_files/photos/' + (result.length + 1) + '.png';
+    pathFile = '/public/user_files/photos/' + (result.length + 1) + '.png';
     image.mv(pathFile,function(err) {
       if (err) console.log(err);
     });
