@@ -43,6 +43,8 @@ body{
   position: absolute;
   bottom: 0;
   width: 1060px;
+  padding: 0 20px;
+  box-sizing: border-box;
   border-top: 2px solid #67ce33;
   border-bottom: 2px solid #67ce33;
   background: #FFF;

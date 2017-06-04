@@ -3,13 +3,11 @@ const app     = express();
 const http    = require('http').Server(app);
 const pug     = require('pug');
 
+global.__basePath = __dirname;
+
 //Vital requires
-var s = require('./modules/session.js');
-s.init(app);
+require('./modules/session.js')(app);
 require('./mount.js')(app);
-
-
-console.log('from index');
 
 //All stuff for rendering
 app.use(express.static('public'));

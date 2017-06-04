@@ -1,5 +1,3 @@
-const express = require('express');
-const app = express();
 const listFiles = require('recursive-readdir-sync');
 const path = require('path');
 const routesPath = path.join(__dirname, 'routes');

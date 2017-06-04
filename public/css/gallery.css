@@ -45,6 +45,11 @@
   width: 240px;
   display: inline-block;
   cursor: pointer;
+  color: #000;
+}
+
+#gallery .photo:visiited{
+  color: #000;
 }
 
 #gallery .photo:nth-child(4n){
