@@ -1,0 +1,45 @@
+#comments{
+  
+}
+
+#comments .header{
+  font-size: 24px;
+}
+
+#comments .send .area{
+  border: 0;
+  border-top: 1px solid #EEE;
+  border-bottom: 2px solid #CCC;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  font-size: 20px;
+  color: #222;
+  transition: border 0.3s ease-in;
+  padding: 2px 5px;
+  max-width: 100%;
+  resize: none;
+}
+
+#comments .comment{
+  margin: 5px 10px;
+}
+#comments .comment .author{
+  color: #222;
+  display: inline;
+  font-size: 20px;
+  padding: 5px 20px;
+  display: inline-block;
+}
+#comments .comment .date{
+  color: #444;
+  display: inline;
+  font-size: 18px;
+  vertical-align: middle;
+}
+#comments .comment .text{
+  border-top: 2px solid #67ce33;
+  margin-top: 5px;
+  font-size: 16px;
+  padding: 5px;
+}

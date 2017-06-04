@@ -15,6 +15,10 @@ a{
   text-decoration: none;
 }
 
+span{
+  vertical-align: middle;
+}
+
 @font-face {
   font-family: 'Futura-Normal';
   src: url('/fonts/Futura-Normal.eot') format('embedded-opentype');
@@ -24,7 +28,7 @@ a{
 
 body{
   background: url('/images/bg.png') repeat;
-  font-family: Futura-Normal;
+  font-family: 'Futura-Normal';
 }
 
 #wrapper{

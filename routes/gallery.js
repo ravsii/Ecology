@@ -7,17 +7,25 @@ router.use(fileUpload());
 
 router.get('/', (req, res) => {
   mysql.query('SELECT * FROM `images`;', function(err, result){
-    res.render('gallery', {
+    res.render('gallery/gallery', {
       session: req.session,
       result: result
     });
   });
 });
 
-router.get('/:id', (req, res) => {
-  res.render('photo',{
-    session: req.session,
-    id: req.params.id
+router.get('/pic/:id', (req, res) => {
+  const pid = req.params.id;
+  mysql.query('SELECT * FROM `images` WHERE `id` = ?;', pid, function(err, result){
+    if(result.length > 0){
+      //mysql.query('UPDATE `images` SET `views` = views + 1 WHERE `id` = ?;', pid);
+      res.render('gallery/photo',{
+        session: req.session,
+        data: result[0]
+      });
+    } else {
+      res.redirect("/gallery");
+    }
   });
 });
 
