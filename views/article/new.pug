@@ -1,18 +1,18 @@
-extends layout
+extends ../layout
 
 block css
   link(rel='stylesheet', href='./css/upload.css')
 
 block screen
-  #upload
+  form#upload
     .field
-      p Название фотографии
+      p Название новости
       input.title(type='text' name='title')
     .field
       label#lb(for='photo') Выберите изображение
       input#photo(type='file' name='file')
     .field
-      p Описании фотографии
+      p Описании новости
       textarea.desc(name='desc' noresize)
     input.submit(type='submit' value='Опубликовать')
     

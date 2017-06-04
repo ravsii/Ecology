@@ -45,6 +45,11 @@
   width: 240px;
   display: inline-block;
   cursor: pointer;
+  color: #000;
+}
+
+#gallery .photo:visiited{
+  color: #000;
 }
 
 #gallery .photo:nth-child(4n){
@@ -54,6 +59,9 @@
 #gallery .photo .image{
   border-radius: 5px;
   border-bottom: 5px solid #67ce33;
+  min-width: 240px;
+  max-width: 240px;
+  max-height: 500px;
 }
 
 #gallery .photo .line{
@@ -65,7 +73,7 @@
 }
 
 #gallery .photo:hover .line{
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.65);
 }
 
 #gallery .photo .comment{
