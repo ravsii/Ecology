@@ -8,6 +8,8 @@
       li.right #[a=session.username]
       if(session.admin == 1)
         li.right #[a(href='/article/new') Добавить новость]
+      else
+        li.right #[a(href='/article/new') Предложить новость]
     else
       li.right #[a(href='/auth/register') Регистрация]
       li.right #[a(href='/auth/login') Вход]

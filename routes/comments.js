@@ -19,4 +19,20 @@ router.post('/add/:id/:type', urlencodedParser, (req, res) => {
   });
 });
 
+
+router.post('/delete/:id/:id_type/:type', urlencodedParser, (req, res) => {
+  mysql.query('DELETE FROM `comments` WHERE id=' + req.params.id + ';', (err,result) =>
+  {
+    switch(req.params.type){
+      case '1':
+        res.redirect('/article/' + req.params.id_type + '#comments');
+        break;
+        
+      case '2':
+        res.redirect('/gallery/' + req.params.id_type + '#comments');
+        break;
+    }
+  });
+});
+
 module.exports = router;

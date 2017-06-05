@@ -9,10 +9,12 @@ mixin commentsSection(id, type, data)
         form.send(method='POST' action='/comments/add/' + id + '/' + type)
           textarea.area(name='text' placeholder='Текст')
           input.submit(type='submit')
-      if(data)     
+      if(data)
+        - var i = 0;     
         each comment in data
           .comment
             span.author=comment.login
             if(session.admin === 1)
-              a.right(href='')=Удалить
+              form.send(method='POST' action='/comments/delete/' + comments[i++].id + '/' + id + '/' + type) 
+                input.submit(type='submit' value='Удалить')
             .text=comment.text
