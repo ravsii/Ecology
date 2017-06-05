@@ -1,12 +1,15 @@
-mixin commentsSection(id, type, data)
+mixin commentsSection(id, type, data) 
     #comments
+      if(data && session.authorized === false) 
+        .header.left Комментарии:
+        .clear
       if(session.authorized)
-        .header.left Оставить комментарий
+        .header.left Оставить комментарий:
         .clear
         form.send(method='POST' action='/comments/add/' + id + '/' + type)
           textarea.area(name='text' placeholder='Текст')
           input.submit(type='submit')
-      if(data)  
+      if(data)     
         each comment in data
           .comment
             span.author=comment.login

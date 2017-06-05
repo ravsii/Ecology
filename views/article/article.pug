@@ -3,11 +3,14 @@ include ../comments.pug
 
 
 block css
+  link(rel='stylesheet', href='/css/article.css')
   link(rel='stylesheet', href='/css/comments.css')
 
 block screen
   #article
-    .title Title
-    .image image #[img]
-    .desc tyt bydet opisanie
+    .image.right
+      img(src='/user_files/news/' + article.id)
+    .title=article.title
+    .text=article.text
+  .clear
   +commentsSection(article.id, 1, comments)
