@@ -4,13 +4,13 @@ block css
   link(rel='stylesheet', href='./css/upload.css')
 
 block screen
-  form#upload
+  form#upload(method='POST', action='new', encType="multipart/form-data")
     .field
       p Название новости
       input.title(type='text' name='title')
     .field
       label#lb(for='photo') Выберите изображение
-      input#photo(type='file' name='file')
+      input#photo(type='file' name='image')
     .field
       p Описании новости
       textarea.desc(name='desc' noresize)
