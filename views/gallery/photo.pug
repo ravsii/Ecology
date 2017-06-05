@@ -1,0 +1,16 @@
+extends ../layout
+include ../comments
+
+block css
+  link(rel='stylesheet', href='/css/gallery.css')
+  link(rel='stylesheet', href='/css/comments.css')
+
+block screen
+  #photo
+    .image
+      img(src='/user_files/photos/' + photo.id)
+    .views.right
+      span.viewsIcon
+      span Просмотров #{photo.views}
+    .clear
+  +commentsSection(photo.id, 2, comments)

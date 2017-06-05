@@ -1,0 +1,13 @@
+extends ../layout
+include ../comments.pug
+
+
+block css
+  link(rel='stylesheet', href='/css/comments.css')
+
+block screen
+  #article
+    .title Title
+    .image image #[img]
+    .desc tyt bydet opisanie
+  +commentsSection(article.id, 1, comments)

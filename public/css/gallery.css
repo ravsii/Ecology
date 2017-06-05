@@ -1,0 +1,106 @@
+#upload{
+  font-size: 18px;
+  text-align: center;
+}
+
+#upload input#photo{
+  display: none;
+}
+
+#upload label, #upload .submit{
+  background: #FFF;
+  margin: 5px 10px;
+  display: inline-block;
+  border: 0;
+  border-bottom: 2px solid #CCC;
+  color: #333;
+  font-size: 18px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+#upload label{
+  border: 1px solid #CCC;
+  border-radius: 5px;
+}
+
+#upload label:hover, #upload .submit:hover{
+  color: #222;
+  border-bottom: 2px solid #67ce33;
+}
+
+#upload label:hover{
+  border: 1px solid #67ce33;
+}
+
+#gallery{
+  position: relative;
+}
+
+#gallery .photo{
+  position: relative;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  width: 240px;
+  display: inline-block;
+  cursor: pointer;
+  color: #000;
+}
+
+#gallery .photo:visiited{
+  color: #000;
+}
+
+#gallery .photo:nth-child(4n){
+  margin-right: 0 !important;
+}
+
+#gallery .photo .image{
+  border-radius: 5px;
+  border-bottom: 5px solid #67ce33;
+  min-width: 240px;
+  max-width: 240px;
+  max-height: 500px;
+  vertical-align: top;
+}
+
+#gallery .photo .line{
+  position: absolute;
+  bottom: 5px;
+  padding: 5px 10px;
+  background: transparent;
+  width: 220px;
+}
+
+#gallery .photo:hover .line{
+  background: rgba(255, 255, 255, 0.65);
+}
+
+#gallery .photo .comment{
+  display: none;
+}
+
+#gallery .photo:hover .comment, #gallery .photo .views{
+  display: inline;
+}
+
+#gallery .photo .views span.viewsText{
+  display: none;
+}
+
+/* Photo Page */
+#photo{
+  margin: 0 auto;
+}
+
+#photo .image{
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #67ce33;
+  text-align: center;
+}
+
+#photo .image img{
+  max-width: 1020px;
+}

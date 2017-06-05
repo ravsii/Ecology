@@ -1,0 +1,35 @@
+extends ../layout
+
+block css
+  link(rel='stylesheet', href='/css/gallery.css')
+
+block screen
+  if(session.authorized)
+    form#upload(method="POST" action="/gallery/upload" encType="multipart/form-data")
+      p Хотите добавить своё изображение?
+      label#lb(for='photo') Выбрать изображение
+      input#photo(type='file' name='image')
+      input.submit(type='submit' value='Опубликовать')
+      
+      // Simple script for setting label#lb=filename
+      script.
+        label = document.getElementById('lb');
+        input = document.getElementById('photo');
+        input.onchange = () => {
+          a = input.value;
+          a = a.split('\\');
+          lb.innerText  = a[a.length - 1];
+        }
+  
+  #gallery
+    - for(var i = 0; i < result.length; i++) {
+      a.photo(id='pid_' + result[i].id href='/gallery/' + result[i].id)
+        img(src='/user_files/photos/' + result[i].id).image
+        .line
+          .comment Комментировать
+          .views.right
+            span.viewsIcon
+            span.viewsText Просмотров 
+            span.viewsCount=result[i].views
+          .clear
+    - }

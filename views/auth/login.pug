@@ -1,0 +1,17 @@
+extends ../layout
+
+block css
+  link(rel='stylesheet', href='/css/auth.css')
+
+block screen
+  .form
+    h1 Вход
+    h3.error Error if needed.
+    form(method='POST' action='/auth/login')
+      .field
+        .helper Логин:
+        input.enter(type='text' name='login')
+      .field
+        .helper Пароль:
+        input.enter(type='password' name='password')
+      input.submit(type='submit' value='Войти')

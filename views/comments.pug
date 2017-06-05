@@ -1,0 +1,15 @@
+mixin commentsSection(id, type, data)
+    #comments
+      if(session.authorized)
+        .header.left Оставить комментарий
+        .clear
+        form.send(method='POST' action='/comments/add/' + id + '/' + type)
+          textarea.area(name='text' placeholder='Текст')
+          input.submit(type='submit')
+      if(data)  
+        each comment in data
+          .comment
+            span.author=comment.login
+            if(session.admin === 1)
+              a.right(href='')=Удалить
+            .text=comment.text

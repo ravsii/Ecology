@@ -1,8 +1,15 @@
 #header
-  h1 Экология
   ul.menu
-    li.left Главная
-    li.left Галерея
-    li.right Username
-      ul.sub_menu #li Выход
-  .clear
+    li.left #[a(href='/') Главная]
+    li.left #[a(href='/gallery') Галерея]
+
+    if(session.authorized)
+      li.right #[a(href='/auth/logout') Выход]
+      li.right #[a=session.username]
+      if(session.admin == 1)
+        li.right #[a(href='/article/new') Добавить новость]
+    else
+      li.right #[a(href='/auth/register') Регистрация]
+      li.right #[a(href='/auth/login') Вход]
+      
+    .clear

@@ -1,11 +1,22 @@
 extends layout
 
+block css
+  link(rel='stylesheet', href='./css/article.css')
+
 block screen
   #news
-  - for(var i = 0; i < 3; i++) {
-    .article
-      .id #{i}
-      .title Title
-      .desc Desc
-      .views Views - #{i + 4}
-  - }
+    each article in news
+      - article.text = (article.text.length > 100) ? article.text.slice(0, 100) + '...' : article.text;
+      .article
+        .image 
+          a.hover(href='/article/' + article.id) #[p Читать полностью &rArr;]
+          img(src='/user_files/news/' + article.id)
+          .clear
+        .info
+          .title=article.title
+          .desc=article.text
+          span.viewsIcon
+          span.views Просмотров #{article.views} 
+          a.readFull.right(href='/article/' + article.id)
+            | Читать полностью &rArr;
+        .clear

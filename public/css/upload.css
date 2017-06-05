@@ -1,0 +1,75 @@
+#upload{
+  width: 700px;
+  margin: 0 auto;
+  margin: 20px auto;
+}
+
+#upload .field{
+  margin-bottom: 50px;
+}
+
+#upload .field p{
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+#upload .field input.title{
+  border: 0;
+  border-bottom: 2px solid #CCC;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  font-size: 20px;
+  color: #222;
+  transition: border 0.3s ease-in;
+  padding: 2px 5px;
+}
+
+#upload .field label{
+  background: #FFF;
+  border: 2px solid #CCC;
+  padding: 10px 15px;
+  display: inline-block;
+  font-size: 20px;
+  color: #333;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+}
+
+#upload .field label:hover{
+  border: 2px solid #67ce33;
+  color: #222;
+}
+
+#upload .field input#photo{
+  display: none;
+}
+
+#upload .field input, #upload .field textarea{
+  margin: 0 5px;
+}
+
+#upload .field input:focus, #upload .field textarea:focus{
+  border-color: #67ce33;
+}
+
+#upload .submit{
+  background: #FFF;
+  margin: 0 auto;
+  display: block;
+  border: 0;
+  border-bottom: 2px solid #CCC;
+  color: #333;
+  font-size: 20px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+  padding: 10px 100px;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+#upload .submit:hover{
+  color: #222;
+  border-bottom: 2px solid #67ce33;
+}

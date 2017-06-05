@@ -1,0 +1,49 @@
+#comments{
+  
+}
+
+#comments .header{
+  font-size: 24px;
+}
+
+#comments .send{
+  position: relative;
+}
+
+#comments .send .submit{
+  background: #FFF;
+  border: 0;
+  border-bottom: 2px solid #CCC;
+  color: #333;
+  font-size: 18px;
+  padding: 5px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  position: absolute;
+  bottom: 0;
+  right: 2px;
+}
+
+#comments .submit:hover{
+  color: #222;
+  border-bottom: 2px solid #67ce33;
+}
+
+#comments .comment{
+  margin: 5px 10px;
+}
+
+#comments .comment .author{
+  color: #222;
+  display: inline;
+  font-size: 20px;
+  padding: 5px 20px;
+  display: inline-block;
+}
+
+#comments .comment .text{
+  border-top: 2px solid #67ce33;
+  margin-top: 5px;
+  font-size: 16px;
+  padding: 5px;
+}
