@@ -62,11 +62,12 @@
   min-width: 240px;
   max-width: 240px;
   max-height: 500px;
+  vertical-align: top;
 }
 
 #gallery .photo .line{
   position: absolute;
-  bottom: 9px;
+  bottom: 5px;
   padding: 5px 10px;
   background: transparent;
   width: 220px;
@@ -84,10 +85,21 @@
   display: inline;
 }
 
-#gallery .photo .views span{
-  vertical-align: middle;
-}
-
 #gallery .photo .views span.viewsText{
   display: none;
+}
+
+/* Photo Page */
+#photo{
+  margin: 0 auto;
+}
+
+#photo .image{
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #67ce33;
+}
+
+#photo .image img{
+  max-width: 1020px;
 }

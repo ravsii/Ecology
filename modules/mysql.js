@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 
-var db_config = {
+const db_config = {
   host: "127.0.0.1",
   user: "mysql",
   password: "mysql",
@@ -11,18 +11,20 @@ var con;
 
 //Auto-disconnects fix
 function handleDisconnect() {
-  con = mysql.createConnection(db_config);
-  
+  con = mysql.createPool(db_config);
+  /*
   con.connect((err) => {
     if(err) {
-      //console.log('Connecting error:', err);
+      console.log('Connecting error:', err);
       setTimeout(handleDisconnect, 2000); //Retry
     }
   });
-  
+  */
+  //con.query("SET SESSION wait_timeout = 3"); // 7 days timeout LUL
   con.on('error', function(err) {
     if(err.code === 'PROTOCOL_CONNECTION_LOST') {
       handleDisconnect();
+      console.log('working');
     } else {
       throw err;
     }

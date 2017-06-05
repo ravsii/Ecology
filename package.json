@@ -18,6 +18,7 @@
     "mysql": "^2.13.0",
     "nodemon": "^1.11.0",
     "pug": "^2.0.0-rc.1",
-    "recursive-readdir-sync": "^1.0.6"
+    "recursive-readdir-sync": "^1.0.6",
+    "use-strict": "^1.0.1"
   }
 }

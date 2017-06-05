@@ -1,7 +1,9 @@
 const express = require('express');
-const app     = express();
-const http    = require('http').Server(app);
-const pug     = require('pug');
+const app = express();
+const http = require('http').Server(app);
+const pug = require('pug');
+
+require('use-strict');
 
 global.__basePath = __dirname;
 

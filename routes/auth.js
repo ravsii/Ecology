@@ -2,7 +2,7 @@ const router = require('express').Router();
 const bodyParser = require("body-parser");
 const mysql = require('../modules/mysql.js');
 
-var urlencodedParser = bodyParser.urlencoded({extended: false});
+const urlencodedParser = bodyParser.urlencoded({extended: false});
 
 router.get('/register', (req, res) => {
   res.render('auth/register', {
