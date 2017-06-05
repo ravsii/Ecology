@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const fileUpload = require('express-fileupload');
-
 const mysql = require(__basePath + '/modules/mysql.js');
 
 router.use(fileUpload());
@@ -14,14 +13,18 @@ router.get('/', (req, res) => {
   });
 });
 
-router.get('/pic/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   const pid = req.params.id;
-  mysql.query('SELECT * FROM `images` WHERE `id` = ?;', pid, function(err, result){
-    if(result.length > 0){
-      //mysql.query('UPDATE `images` SET `views` = views + 1 WHERE `id` = ?;', pid);
-      res.render('gallery/photo',{
-        session: req.session,
-        data: result[0]
+  mysql.query('SELECT * FROM `images` WHERE `id` = ?;', pid, function(err, photoData){
+    if(photoData.length > 0){
+      mysql.query('UPDATE `images` SET `views` = views + 1 WHERE `id` = ?;', pid);
+      mysql.query('SELECT * FROM `comments` LEFT JOIN  `users` ON (comments.id_author = users.id) WHERE `type` = ? AND `id_parent` = ? ORDER BY `comments`.`id` DESC;', [2, pid], (err, commmentsData) => {
+        if(typeof commmentsData === 'undefined' || commmentsData.length === 0) commmentsData = false;
+        res.render('gallery/photo',{
+          session: req.session,
+          photo: photoData[0],
+          comments: commmentsData
+        });
       });
     } else {
       res.redirect("/gallery");

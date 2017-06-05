@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-router.get('/', (req, res) => {
+router.get('/:id', (req, res) => {
   res.render('article/article', {
     session: req.session
   });

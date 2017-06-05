@@ -23,7 +23,7 @@ block screen
   
   #gallery
     - for(var i = 0; i < result.length; i++) {
-      a.photo(id='pid_' + result[i].id href='/gallery/pic/' + result[i].id)
+      a.photo(id='pid_' + result[i].id href='/gallery/' + result[i].id)
         img(src='/user_files/photos/' + result[i].id).image
         .line
           .comment Комментировать

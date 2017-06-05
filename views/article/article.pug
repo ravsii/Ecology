@@ -1,14 +1,16 @@
 extends ../layout
+include ../comments.pug
+
+
+block css
+  link(rel='stylesheet', href='/css/comments.css')
 
 block screen
   #article
     .title Title
     .image image #[img]
     .desc tyt bydet opisanie
-  #comments
-    - for(let i = 0; i < 5; i++) {
-    .comment
-      .author RVS
-      .date date
-      .text text
-    - }
+  - obj = {id: 1, author: 'Rvs', text: 'text'};
+  - var arr = []
+  - for(let i = 0; i < 5; i++) arr.push(obj);
+  +commentsSection(1, arr)

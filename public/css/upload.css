@@ -47,21 +47,6 @@
   display: none;
 }
 
-#upload .field textarea.desc{
-  border: 0;
-  border-top: 1px solid #EEE;
-  border-bottom: 2px solid #CCC;
-  width: 100%;
-  display: block;
-  box-sizing: border-box;
-  font-size: 20px;
-  color: #222;
-  transition: border 0.3s ease-in;
-  padding: 2px 5px;
-  max-width: 800px;
-  resize: none;
-}
-
 #upload .field input, #upload .field textarea{
   margin: 0 5px;
 }

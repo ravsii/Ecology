@@ -1,4 +1,5 @@
 extends ../layout
+include ../comments
 
 block css
   link(rel='stylesheet', href='/css/gallery.css')
@@ -7,20 +8,9 @@ block css
 block screen
   #photo
     .image
-      img(src='/user_files/photos/' + data.id)
+      img(src='/user_files/photos/' + photo.id)
     .views.right
       span.viewsIcon
-      span Просмотров #{data.views}
-  #comments
-    .header.left Оставить комментарий
+      span Просмотров #{photo.views}
     .clear
-    form.send(method='post')
-      textarea.area(name='text' placeholder='Текст')
-      input(type='submit')
-    - for(let i = 0; i < 3; i++) {
-      .comment(id='cid' + i)
-        span.author Автор комментария
-        a.date(href='/gallery/pic/' + data.id + '#cid_' + i) 19:04
-        a.right (ifAdmin)Удалить
-        .text А что если я скажу вам что тут должен быть текст комментария который lorem ipsum, но мне лень было его искать, копировать и так далее и поэтому вместо него я буду использовать свой собственный, спасибо.
-    - }
+  +commentsSection(photo.id, 2, comments)

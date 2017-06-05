@@ -6,24 +6,33 @@
   font-size: 24px;
 }
 
-#comments .send .area{
+#comments .send{
+  position: relative;
+}
+
+#comments .send .submit{
+  background: #FFF;
   border: 0;
-  border-top: 1px solid #EEE;
   border-bottom: 2px solid #CCC;
-  width: 100%;
-  display: block;
-  box-sizing: border-box;
-  font-size: 20px;
+  color: #333;
+  font-size: 18px;
+  padding: 5px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  position: absolute;
+  bottom: 0;
+  right: 2px;
+}
+
+#comments .submit:hover{
   color: #222;
-  transition: border 0.3s ease-in;
-  padding: 2px 5px;
-  max-width: 100%;
-  resize: none;
+  border-bottom: 2px solid #67ce33;
 }
 
 #comments .comment{
   margin: 5px 10px;
 }
+
 #comments .comment .author{
   color: #222;
   display: inline;
@@ -31,12 +40,7 @@
   padding: 5px 20px;
   display: inline-block;
 }
-#comments .comment .date{
-  color: #444;
-  display: inline;
-  font-size: 18px;
-  vertical-align: middle;
-}
+
 #comments .comment .text{
   border-top: 2px solid #67ce33;
   margin-top: 5px;
