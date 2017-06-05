@@ -70,7 +70,8 @@
 
 #news .article .readFull{
   border: 1px solid #999;
-  margin-bottom: 10px;
+  margin-top: -8px;
+  padding: 5px 10px;
   border-radius: 3px;
   text-align: right;
   font-size: 16px;
@@ -87,7 +88,29 @@
 #news .article span, #news .article a{
   display: inline-block;
   vertical-align: middle;
-  padding: 5px 10px;
+}
+
+/* Article */
+
+#article .image img{
+  max-height: 300px;
+  max-width: 400px;
+  border-radius: 5px;
+  border: 2px solid #67ce33;
+}
+
+#article .title{
+  font-weight: bold;
+  font-size: 24px;
+  border-bottom: 2px solid #67ce33;
+  padding: 10px 15px;
+  display: flex;
+}
+
+#article .text{
+  font-size: 18px;
+  padding: 10px;
+  display: flex;
 }
 
 /* New Article */
