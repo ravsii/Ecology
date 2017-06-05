@@ -10,7 +10,4 @@ block screen
     .title Title
     .image image #[img]
     .desc tyt bydet opisanie
-  - obj = {id: 1, author: 'Rvs', text: 'text'};
-  - var arr = []
-  - for(let i = 0; i < 5; i++) arr.push(obj);
-  +commentsSection(1, arr)
+  +commentsSection(article.id, 1, comments)

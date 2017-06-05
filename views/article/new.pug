@@ -1,15 +1,16 @@
 extends ../layout
 
 block css
-  link(rel='stylesheet', href='./css/upload.css')
+  link(rel='stylesheet', href='/css/article.css')
 
 block screen
-  form#upload(method='POST', action='new', encType="multipart/form-data")
+  form#newArticle(method='POST', action='new', encType="multipart/form-data")
     .field
       p Название новости
       input.title(type='text' name='title')
     .field
-      label#lb(for='photo') Выберите изображение
+      p Превью изображение
+      label#lb(for='photo') Выбрать
       input#photo(type='file' name='image')
     .field
       p Описании новости

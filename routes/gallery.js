@@ -18,7 +18,8 @@ router.get('/:id', (req, res) => {
   mysql.query('SELECT * FROM `images` WHERE `id` = ?;', pid, function(err, photoData){
     if(photoData.length > 0){
       mysql.query('UPDATE `images` SET `views` = views + 1 WHERE `id` = ?;', pid);
-      mysql.query('SELECT * FROM `comments` LEFT JOIN  `users` ON (comments.id_author = users.id) WHERE `type` = ? AND `id_parent` = ? ORDER BY `comments`.`id` DESC;', [2, pid], (err, commmentsData) => {
+      mysql.query('SELECT * FROM `comments` LEFT JOIN `users` ON (comments.id_author = users.id) WHERE `type` = ? AND `id_parent` = ? ORDER BY `comments`.`id` DESC;', [2, pid],
+      (err, commmentsData) => {
         if(typeof commmentsData === 'undefined' || commmentsData.length === 0) commmentsData = false;
         res.render('gallery/photo',{
           session: req.session,
@@ -35,7 +36,6 @@ router.get('/:id', (req, res) => {
 router.post('/upload',(req, res) => {
   mysql.query('INSERT INTO `images` VALUES (NULL, 0);', function(err, result){
     mysql.query('SELECT `id` FROM `images` ORDER BY `images`.`id` DESC LIMIT 0, 1;', function(err, result){
-      console.log(result);
       req.files.image.mv(__basePath + '/public/user_files/photos/' + result[0].id, function(err) {
         if(err) console.log(err);
       });

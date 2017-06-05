@@ -5,18 +5,18 @@ block css
 
 block screen
   #news
-    - var t = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque porta nunc, in placerat erat finibus ac. Morbi molestie nisi velit...";
-    - for(var i = 0; i < 6; i++) {
-      .article(id='aid_i')
+    each article in news
+      - article.text = (article.text.length > 100) ? article.text.slice(0, 100) + '...' : article.text;
+      .article
         .image 
-          a.hover #[p Читать полностью &rArr;]
-          img.left(src='http://via.placeholder.com/500x200')
+          a.hover(href='/article/' + article.id) #[p Читать полностью &rArr;]
+          img(src='/user_files/news/' + article.id)
           .clear
-        .title Заголовок #{i}
-        .desc #{t}
-        span.viewsIcon
-        span.views Views - #{i + 4}
-        a.readFull.right
-          | Читать полностью &rArr;
+        .info
+          .title=article.title
+          .desc=article.text
+          span.viewsIcon
+          span.views Просмотров #{article.views} 
+          a.readFull.right(href='/article/' + article.id)
+            | Читать полностью &rArr;
         .clear
-    - }
