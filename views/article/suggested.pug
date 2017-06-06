@@ -1,0 +1,18 @@
+extends ../layout
+
+block css
+  link(rel='stylesheet', href='/css/article.css')
+
+block screen
+    #suggested
+      .header
+        h1.left=(suggested.length > 0) ? 'Предложенные новости' : 'Нет предложенных новостей'
+        a(href='/article/new')
+          h1.add.right Добавить новость
+        .clear
+      each article in suggested
+        .article
+          a.title(href='/article/' + article.id)=article.title
+          a.icon.red.right(href='/article/delete/' + article.id) &#10006;
+          a.icon.right(href='/article/approve/' + article.id) &#10004;
+          .clear

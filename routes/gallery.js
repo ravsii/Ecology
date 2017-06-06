@@ -18,7 +18,7 @@ router.get('/:id', (req, res) => {
   mysql.query('SELECT * FROM `images` WHERE `id` = ?;', pid, function(err, photoData){
     if(photoData.length > 0){
       mysql.query('UPDATE `images` SET `views` = views + 1 WHERE `id` = ?;', pid);
-      mysql.query('SELECT * FROM `comments` LEFT JOIN `users` ON (comments.id_author = users.id) WHERE `type` = ? AND `id_parent` = ? ORDER BY `comments`.`id` DESC;', [2, pid],
+      mysql.query('SELECT `comments`.*, `users`.`login` FROM `comments` LEFT JOIN `users` ON (comments.id_author = users.id) WHERE `type` = ? AND `id_parent` = ? ORDER BY `comments`.`id` DESC;', [2, pid],
       (err, commmentsData) => {
         if(typeof commmentsData === 'undefined' || commmentsData.length === 0) commmentsData = false;
         res.render('gallery/photo',{

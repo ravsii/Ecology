@@ -7,7 +7,7 @@
       li.right #[a(href='/auth/logout') Выход]
       li.right #[a=session.username]
       if(session.admin == 1)
-        li.right #[a(href='/article/new') Добавить новость]
+        li.right #[a(href='/article/suggested') Предложенные новости]
       else
         li.right #[a(href='/article/new') Предложить новость]
     else
