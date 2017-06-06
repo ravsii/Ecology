@@ -34,6 +34,8 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/upload',(req, res) => {
+  var file = req.files.image;
+  console.log(file.type.indexOf("image/"));
   mysql.query('INSERT INTO `images` VALUES (NULL, 0);', function(err, result){
     mysql.query('SELECT `id` FROM `images` ORDER BY `images`.`id` DESC LIMIT 0, 1;', function(err, result){
       req.files.image.mv(__basePath + '/public/user_files/photos/' + result[0].id, function(err) {
