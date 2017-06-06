@@ -15,6 +15,5 @@ mixin commentsSection(id, type, data)
           .comment
             span.author=comment.login
             if(session.admin === 1)
-              form.send(method='POST' action='/comments/delete/' + comments[i++].id + '/' + id + '/' + type) 
-                input.submit(type='submit' value='Удалить')
+              a.right(href='/comments/delete/' + comment.id + '/' + id + '/' + type).del Удалить
             .text=comment.text

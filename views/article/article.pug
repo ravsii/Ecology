@@ -13,4 +13,5 @@ block screen
     .title=article.title
     .text=article.text
   .clear
-  +commentsSection(article.id, 1, comments)
+  if(article.public)
+    +commentsSection(article.id, 1, comments)

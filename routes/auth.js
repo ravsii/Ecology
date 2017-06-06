@@ -45,9 +45,7 @@ router.post('/login', urlencodedParser, (req, res) =>{
       req.session.admin = result[0].admin;
       req.session.save();
       res.redirect('/');
-    } else {
-      res.redirect('/auth/login');
-    }
+    } else res.redirect('/auth/login');
   });
 });
 

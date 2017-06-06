@@ -189,3 +189,70 @@
   color: #222;
   border-bottom: 2px solid #67ce33;
 }
+
+/* Suggested */
+#suggested{
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+#suggested .header{
+  border-bottom: 2px solid #67ce33;
+  margin-bottom: 10px;
+}
+
+#suggested h1{
+  font-weight: normal;
+  padding: 5px 20px;
+  color: #222;
+  font-size: 25px;
+  display: inline-block;
+}
+
+#suggested h1.add{
+  color: #555;
+  border-bottom: 2px solid #EEE;
+  transition: all 0.2s ease-in;
+  margin-bottom: -2px;
+}
+
+#suggested .add:hover{
+  color: #111;
+  border-bottom: 2px solid #67ce33;
+}
+
+#suggested .article .title{
+  color: #222;
+  font-size: 24px;
+  padding: 5px 20px;
+  display: inline-block;
+  border-bottom: 2px solid #EEE;
+  transition: all 0.2s ease-in;
+}
+
+#suggested .article .title:hover{
+  color: #111;
+  border-bottom: 2px solid #67ce33;
+}
+
+#suggested .article .icon{
+  color: #555;
+  font-size: 20px;
+  padding: 5px 20px;
+  display: inline-block;
+  border-bottom: 2px solid rgba(103, 206, 51, 0.4);
+  transition: all 0.2s ease-in;
+}
+
+#suggested .article .icon:hover{
+  border-bottom: 2px solid rgba(103, 206, 51, 1);
+  color: #111;
+}
+
+#suggested .article .icon.red{
+  border-bottom: 2px solid rgba(255, 0, 0, 0.4);
+}
+
+#suggested .article .icon.red:hover{
+  border-bottom: 2px solid rgba(255, 0, 0, 1);
+}
