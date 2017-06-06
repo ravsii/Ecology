@@ -35,15 +35,26 @@
 
 #comments .comment .author{
   color: #222;
-  display: inline;
   font-size: 20px;
   padding: 5px 20px;
   display: inline-block;
 }
 
+#comments .comment .del{
+  color: #222;
+  font-size: 20px;
+  padding: 5px 20px;
+  display: inline-block;
+  border-bottom: 2px solid rgba(255, 0, 0, 0.4);
+  transition: border 0.2s ease-in;
+}
+
+#comments .comment .del:hover{
+  border-bottom: 2px solid rgba(255, 0, 0, 0.7);
+}
+
 #comments .comment .text{
   border-top: 2px solid #67ce33;
-  margin-top: 5px;
   font-size: 16px;
   padding: 5px;
 }
