@@ -8,7 +8,7 @@ block screen
     form#upload(method="POST" action="/gallery/upload" encType="multipart/form-data")
       p Хотите добавить своё изображение?
       label#lb(for='photo') Выбрать изображение
-      input#photo(type='file' name='image')
+      input#photo(type='file' name='image' accept="image/*")
       input.submit(type='submit' value='Опубликовать')
       
       // Simple script for setting label#lb=filename
