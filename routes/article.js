@@ -2,6 +2,8 @@ const router = require('express').Router();
 const fileUpload = require('express-fileupload');
 const bodyParser = require("body-parser");
 const mysql = require(__basePath + '/modules/mysql.js');
+const comments = require(__basePath + '/modules/comments.js');
+
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 
 router.use(fileUpload());
@@ -44,13 +46,11 @@ router.get('/:id', (req, res) => {
   mysql.query('SELECT * FROM `news` WHERE `id` = ?;', pid, (err, articleData) => {
     if(articleData.length > 0){
       mysql.query('UPDATE `news` SET `views` = views + 1 WHERE `id` = ?;', pid);
-      mysql.query('SELECT `comments`.*, `users`.`login` FROM `comments` LEFT JOIN `users` ON (comments.id_author = users.id) WHERE `type` = ? AND `id_parent` = ? ORDER BY `comments`.`id` DESC;', [1, pid],
-      (err, commmentsData) => {
-        if(typeof commmentsData === 'undefined' || commmentsData.length === 0) commmentsData = false;
+      comments.load(pid, 1, (cData) => {
         res.render('article/article',{
           session: req.session,
           article: articleData[0],
-          comments: commmentsData
+          commentsData: cData
         });
       });
     } else res.redirect("/");

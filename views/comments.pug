@@ -1,19 +1,19 @@
-mixin commentsSection(id, type, data) 
-    #comments
-      if(data && session.authorized === false) 
-        .header.left Комментарии:
-        .clear
-      if(session.authorized)
-        .header.left Оставить комментарий:
-        .clear
-        form.send(method='POST' action='/comments/add/' + id + '/' + type)
-          textarea.area(name='text' placeholder='Текст')
-          input.submit(type='submit')
-      if(data)
-        - var i = 0;     
-        each comment in data
-          .comment
-            span.author=comment.login
-            if(session.admin === 1)
-              a.right(href='/comments/delete/' + comment.id + '/' + id + '/' + type).del Удалить
-            .text=comment.text
+mixin commentsSection(data) 
+  - console.log(data);
+  #comments
+    if(data.comments && session.authorized === false) 
+      .header.left Комментарии:
+      .clear
+    if(session.authorized)
+      .header.left Оставить комментарий:
+      .clear
+      form.send(method='POST' action='/comments/add/' + data.id + '/' + data.type)
+        textarea.area(name='text' placeholder='Текст')
+        input.submit(type='submit')
+    if(data.comments)
+      each comment in data.comments
+        .comment
+          span.author=comment.login
+          if(session.admin === 1)
+            a.right(href='/comments/delete/' + comment.id + '/' + data.id + '/' + data.type).del Удалить
+          .text=comment.text
